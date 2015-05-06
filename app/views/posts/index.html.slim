@@ -1,0 +1,21 @@
+p#notice = notice
+
+h1 class="text-center"
+  | Write here everything you want
+  = button_to 'New Post', new_post_path, method: :get, class: 'btn btn-primary'
+  br
+
+blockquote class="text-center"
+  - @posts.each do |post|
+    strong
+      br
+        li = post.author
+        | says:
+    br
+      u = post.content
+    br
+      footer
+        =<> link_to 'Edit Post', edit_post_path(post)
+      footer
+        = link_to 'Delete Post', post, data: {:confirm => 'Are you sure?'}, :method => :delete
+
