@@ -1,21 +1,37 @@
-p#notice = notice
-
 h1 class="text-center"
-  | Write here everything you want
+  | My Blog
   = button_to 'New Post', new_post_path, method: :get, class: 'btn btn-primary'
-  br
+h4 class="text-center"
+  - if user_signed_in?
+    strong
+      | Hello,
+      = current_user.email
+    li
+      = link_to "Sign out", destroy_user_session_path, method: :delete
+  - else
+    | Please
+    li
+      = link_to "Sign in", new_user_session_path
+    | Or
+    li
+      = link_to "Sign up", new_user_registration_path
+    br
 
 blockquote class="text-center"
   - @posts.each do |post|
     strong
-      br
-        li = post.author
-        | says:
-    br
-      u = post.content
+      p
+        = markdown(post.author)
+    h6
+      | says:
+    p
+      = markdown(post.content)
+    h5
+      | Published
+      =<> time_ago_in_words(post.created_at)
+      | ago
     br
       footer
         =<> link_to 'Edit Post', edit_post_path(post)
       footer
         = link_to 'Delete Post', post, data: {:confirm => 'Are you sure?'}, :method => :delete
-

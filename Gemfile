@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'devise'
+
+gem 'cancancan'
+
+gem 'redcarpet'
+
+gem 'rails-bootstrap-markdown'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

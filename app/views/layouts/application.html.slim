@@ -1,6 +1,10 @@
 doctype html
 html
   head
+    p#notice
+      = notice
+    p#alert
+      = alert
     title
       | Shortword
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
