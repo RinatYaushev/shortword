@@ -6,8 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Post.delete_all
+user = User.create!(email: 'user@example.com',
+                    password: 'password',
+                    password_confirmation: 'password')
 
-Post.create!(author: 'Bob', content: 'I wrote something')
-Post.create!(author: 'Mary', content: 'I wrote something else')
-Post.create!(author: 'Batman', content: 'BATMAN FOREVER!!!')
+other_user = User.create!(email: 'other_user@example.com',
+                          password: 'password',
+                          password_confirmation: 'password')
+
+Post.create!(author: user, content: 'I wrote something')
+Post.create!(author: user, content: 'I wrote something else')
+Post.create!(author: user, content: 'BATMAN FOREVER!!!')
+Post.create!(author: other_user, content: 'BATMAN FOREVER2!!!')

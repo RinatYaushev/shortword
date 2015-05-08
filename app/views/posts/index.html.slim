@@ -1,37 +1,21 @@
-h1 class="text-center"
+h1
+  = button_to 'New Post', new_post_path, method: :get, class: 'btn btn-primary pull-right'
   | My Blog
-  = button_to 'New Post', new_post_path, method: :get, class: 'btn btn-primary'
-h4 class="text-center"
-  - if user_signed_in?
-    strong
-      | Hello,
-      = current_user.email
-    li
-      = link_to "Sign out", destroy_user_session_path, method: :delete
-  - else
-    | Please
-    li
-      = link_to "Sign in", new_user_session_path
-    | Or
-    li
-      = link_to "Sign up", new_user_registration_path
-    br
 
-blockquote class="text-center"
-  - @posts.each do |post|
-    strong
-      p
-        = markdown(post.author)
-    h6
-      | says:
-    p
+- @posts.each do |post|
+  .panel.panel-default
+    .panel-heading
+      strong
+        = post.author.email
+      .btn-group.btn-group-xs.pull-right role="group"
+        - if can? :edit, post
+          =<> link_to 'Edit', edit_post_path(post), class: 'btn btn-default'
+        - if can? :delete, post
+          = link_to 'Delete', post, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+    .panel-body
       = markdown(post.content)
-    h5
-      | Published
-      =<> time_ago_in_words(post.created_at)
-      | ago
-    br
-      footer
-        =<> link_to 'Edit Post', edit_post_path(post)
-      footer
-        = link_to 'Delete Post', post, data: {:confirm => 'Are you sure?'}, :method => :delete
+    .panel-footer
+      div
+        | Published
+        =<> time_ago_in_words(post.created_at)
+        | ago

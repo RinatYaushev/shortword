@@ -1,10 +1,6 @@
 doctype html
 html
   head
-    p#notice
-      = notice
-    p#alert
-      = alert
     title
       | Shortword
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
@@ -12,4 +8,26 @@ html
     = csrf_meta_tags
 
   body class=(controller.controller_name)
-    = yield
+    - if notice.present?
+      p#notice.alert.alert-info
+        = notice
+    - if alert.present?
+      p#alert.alert.alert-danger
+        = alert
+
+    .container
+      - if user_signed_in?
+        strong
+          | Hello,
+          = current_user.email
+        li
+          = link_to "Sign out", destroy_user_session_path, method: :delete
+      - else
+        | Please
+        li
+          = link_to "Sign in", new_user_session_path
+        | Or
+        li
+          = link_to "Sign up", new_user_registration_path
+        br
+      = yield
