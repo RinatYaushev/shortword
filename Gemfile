@@ -8,6 +8,8 @@ gem 'slim-rails'
 gem 'bootstrap-sass'
 gem 'pg'
 gem 'jquery-turbolinks'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 gem 'rails', '4.2.1'
 gem 'sass-rails', '~> 5.0'

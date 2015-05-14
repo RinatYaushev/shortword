@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     if params[:set_locale]
       redirect_to root_url(locale: params[:set_locale])
     else
-      @posts = @posts.includes(:author)
+      @posts = @posts.includes(:author).paginate(page: params[:page], per_page: 5)
     end
   end
 
