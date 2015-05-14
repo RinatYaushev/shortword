@@ -1,6 +1,6 @@
 h1
-  = button_to 'New Post', new_post_path, method: :get, class: 'btn btn-primary pull-right'
-  | My Blog
+  = button_to t('.new_post'), new_post_path, method: :get, class: 'btn btn-primary pull-right'
+  = t('.blog')
 
 - @posts.each do |post|
   .panel.panel-default
@@ -9,13 +9,12 @@ h1
         = post.author.email
       .btn-group.btn-group-xs.pull-right role="group"
         - if can? :edit, post
-          =<> link_to 'Edit', edit_post_path(post), class: 'btn btn-info'
+          =<> link_to t('.edit_post'), edit_post_path(post), class: 'btn btn-info'
         - if can? :delete, post
-          = link_to 'Delete', post, data: { confirm: 'Are you sure?' }, method: :delete, class: 'btn btn-danger'
+          = link_to t('.delete_post'), post, data: { confirm: t('.sure') }, method: :delete, class: 'btn btn-danger'
     .panel-body
       = markdown(post.content)
     .panel-footer
-      div
-        | Published
-        =<> time_ago_in_words(post.created_at)
-        | ago
+      = t('.publish')
+      =<> time_ago_in_words(post.created_at)
+      = t('.ago')

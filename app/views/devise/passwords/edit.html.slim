@@ -1,21 +1,22 @@
 h2
-  | Change your password
+  = t('.change_password')
 
 = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
   = devise_error_messages!
   = f.hidden_field :reset_password_token
 
-  .field
-    = f.label :password, "New password"
+  div class="well well-sm"
+    = f.label :password, t('.new_password')
     br
-    = f.password_field :password, autofocus: true, autocomplete: "off"
+    = f.password_field :password, autofocus: true, autocomplete: "off",class: "form-control", placeholder: t('.enter_password')
 
-  .field
-    = f.label :password_confirmation, "Confirm new password"
+  div class="well well-sm"
+    = f.label :password_confirmation, t('.password_confirmation')
     br
-    = f.password_field :password_confirmation, autocomplete: "off"
+    = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: t('.confirm_password')
 
   .actions
-    = f.submit "Change my password"
+    = f.submit t('.change_password'), class: 'btn btn-primary'
+  br
 
 = render "devise/shared/links"

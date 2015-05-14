@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @posts.includes(:author)
+    if params[:set_locale]
+      redirect_to root_url(locale: params[:set_locale])
+    else
+      @posts = @posts.includes(:author)
+    end
   end
 
   # GET /posts/1
@@ -25,7 +29,7 @@ class PostsController < ApplicationController
   def create
     respond_to do |format|
       if @post.save
-        format.html { redirect_to root_path, notice: 'Post was successfully created.' }
+        format.html { redirect_to root_path, notice: t('.notice_create') }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -39,7 +43,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to root_path, notice: 'Post was successfully updated.' }
+        format.html { redirect_to root_path, notice: t('.notice_update') }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -54,7 +58,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'Post was successfully deleted.' }
+      format.html { redirect_to root_path, notice: t('.notice_destroy') }
       format.json { head :no_content }
     end
   end

@@ -1,0 +1,81 @@
+ru:
+  devise:
+    failure:
+      already_authenticated: "Вы уже вошли в систему."
+      invalid: "Неверные %{authentication_keys} или пароль."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
+    mailer:
+      reset_password_instructions:
+        subject: "Инструкции по восстановлению пароля"
+    passwords:
+      edit:
+        change_password: "Смена пароля"
+        new_password: "Новый пароль"
+        enter_password: "Введите новый пароль"
+        password_confirmation: "Подтверждение пароля"
+        confirm_password: "Подтвердите новый пароль"
+      new:
+        forgot_password: "Забыли пароль?"
+        enter_email: "Введите Email"
+        email: "Почта"
+        send_instructions: "Выслать письмо с инструкциями по восстановлению"
+      no_token: "Вы не можете получить доступ к этой странице, поскольку не прошли процедуру сброса пароля через электронную почту. Если вы перешли по ссылке из электронной почты, пожалуйста, убедитесь, что вы использовали корректный URL из письма."
+      send_instructions: "В течение нескольких минут Вы получите письмо с инструкциями по восстановлению Вашего пароля."
+      send_paranoid_instructions: "Если Ваш адрес электронной почты есть в нашей базе данных, то в течение нескольких минут Вы получите письмо с инструкциями по восстановлению Вашего пароля."
+      updated: "Ваш пароль успешно изменён. Теперь Вы вошли в систему."
+      updated_not_active: "Ваш пароль успешно изменён."
+    registrations:
+      destroyed: "До свидания! Ваша учётная запись удалена. Надеемся вскоре снова увидеть Вас."
+      signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
+      updated: "Ваша учётная запись успешно обновлена."
+      edit:
+        edit_profile: "Настройки пользователя"
+        password_confirmation: "Подтверждение пароля"
+        confirm_password: "Подтвердите новый пароль"
+        current_password: "Текущий пароль"
+        old_password: "Введите старый пароль"
+        email: "Почта"
+        enter_email: "Введите Email"
+        password: "Пароль"
+        enter_password: "Введите новый пароль"
+        update: "Подтвердить изменения"
+        delete_account: "Удалить пользователя"
+        unhappy: "Чем-то недовольны?"
+        sure: "Вы уверены?"
+        back: "Назад"
+        blank: "(оставте пустым если не хотите менять)"
+        need_password: "(нам нужен Ваш текущий пароль для подтверждения изменений)"
+      new:
+        sign_up: "Зарегистрироваться"
+        email: "Почта"
+        enter_email: "Введите Email"
+        password: "Пароль"
+        enter_password: "Введите новый пароль"
+        password_confirmation: "Подтверждение пароля"
+        confirm_password: "Подтвердите новый пароль"
+        characters_min: "символов минимум)"
+    sessions:
+      signed_in: "Вход в систему выполнен."
+      signed_out: "Выход из системы выполнен."
+      already_signed_out: "Выход из системы выполнен."
+      new:
+        log_in: "Войти"
+        email: "Почта"
+        enter_email: "Введите Email"
+        password: "Пароль"
+        enter_password: "Введите пароль"
+        remember_me: "Запомнить меня"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        forgot_password: "Забыли пароль?"
+  errors:
+    messages:
+      not_found: "не найдена"
+      not_saved:
+        one: "1 ошибка не позволяет данному %{resource} провести сохранение:"
+        few: "%{count} ошибки не позволяет данному %{resource} провести сохранение:"
+        many: "%{count} ошибок не позволяет данному %{resource} провести сохранение:"
+        other: "%{count} ошибок не позволяет данному %{resource} провести сохранение:"

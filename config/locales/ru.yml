@@ -1,0 +1,114 @@
+ru:
+  layouts:
+    application:
+      title: "Блог Рена"
+      sign_in_as: "Вы вошли как:"
+      profile: "Профиль"
+      edit_profile: "Редактировать Профиль"
+      sign_out: "Выйти"
+      sign_in: "Войти"
+      sign_up: "Регистрация"
+
+  posts:
+    create:
+      notice_create: "Пост был успешно создан"
+    update:
+      notice_update: "Пост был успешно изменен"
+    destroy:
+      notice_destroy: "Пост был успешно удален"
+    index:
+      blog: "Мой Блог"
+      new_post: "Новый Пост"
+      edit_post: "Редактировать"
+      delete_post: "Удалить"
+      sure: "Вы уверены?"
+      publish: "Опубликовано"
+      ago: "назад"
+    new:
+      new_post: "Новый Пост"
+    edit:
+      edit_post: "Редактировать Пост"
+    form:
+      content_html: "Содержимое"
+      back: "Назад"
+      submit: "Опубликовать"
+
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        few: около %{count} часов
+        many: около %{count} часов
+        one: около %{count} часа
+        other: около %{count} часов
+      about_x_months:
+        few: около %{count} месяцев
+        many: около %{count} месяцев
+        one: около %{count} месяца
+        other: около %{count} месяцев
+      about_x_years:
+        few: около %{count} лет
+        many: около %{count} лет
+        one: около %{count} года
+        other: около %{count} лет
+      almost_x_years:
+        one: почти 1 год
+        few: почти %{count} года
+        many: почти %{count} лет
+        other: почти %{count} лет
+      half_a_minute: меньше минуты
+      less_than_x_minutes:
+        few: меньше %{count} минут
+        many: меньше %{count} минут
+        one: меньше %{count} минуты
+        other: меньше %{count} минут
+      less_than_x_seconds:
+        few: меньше %{count} секунд
+        many: меньше %{count} секунд
+        one: меньше %{count} секунды
+        other: меньше %{count} секунд
+      over_x_years:
+        few: больше %{count} лет
+        many: больше %{count} лет
+        one: больше %{count} года
+        other: больше %{count} лет
+      x_days:
+        few: "%{count} дня"
+        many: "%{count} дней"
+        one: "%{count} день"
+        other: "%{count} дня"
+      x_minutes:
+        few: "%{count} минуты"
+        many: "%{count} минут"
+        one: "%{count} минуту"
+        other: "%{count} минуты"
+      x_months:
+        few: "%{count} месяца"
+        many: "%{count} месяцев"
+        one: "%{count} месяц"
+        other: "%{count} месяца"
+      x_seconds:
+        few: "%{count} секунды"
+        many: "%{count} секунд"
+        one: "%{count} секундy"
+        other: "%{count} секунды"
+
+  activerecord:
+    models:
+      user: "Пользователю"
+    attributes:
+      user:
+        password: "Пароль"
+        current_password: "Текущий пароль"
+        password_confirmation: "Подтверждение пароля"
+    errors:
+      messages:
+        blank: "не может быть пустым"
+        too_short: "слишком короткий"
+        confirmation: "не совпадает"
+        invalid: "неверный"
+  errors:
+    template:
+      body: "Возникли проблемы со следующими полями:"
+      header:
+        one: "1 ошибка не позволяет продолжить"
+        other: "%{count} ошибки %{model} не позволяют продолжить"
