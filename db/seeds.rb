@@ -14,7 +14,7 @@ other_user = User.create!(email: 'other_user@example.com',
                           password: 'password',
                           password_confirmation: 'password')
 
-Post.create!(author: user, content: 'I wrote something')
-Post.create!(author: user, content: 'I wrote something else')
-Post.create!(author: user, content: 'BATMAN FOREVER!!!')
+10.times do |i|
+  Post.create!(author: user, content: "I wrote something #{'!' * i}")
+end
 Post.create!(author: other_user, content: 'BATMAN FOREVER2!!!')
