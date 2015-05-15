@@ -7,7 +7,8 @@ class PostsController < ApplicationController
     if params[:set_locale]
       redirect_to root_url(locale: params[:set_locale])
     else
-      @posts = @posts.includes(:author).paginate(page: params[:page], per_page: 5)
+      @posts = @posts.includes(:author).paginate(page: params[:page],
+                                                 per_page: 5)
     end
   end
 
@@ -65,7 +66,6 @@ class PostsController < ApplicationController
 
   private
 
-  # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:content)
   end
