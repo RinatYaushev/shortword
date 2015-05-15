@@ -1,0 +1,32 @@
+nav class="navbar navbar-default"
+  div class="container-fluid"
+    div class="navbar-header"
+      a class="navbar-brand"
+        img width="20" height="20" src="http://s1.postimg.org/8dsxvun8r/cat.jpg"
+
+    = form_tag root_path, method: :get, class: 'locale' do
+      = select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()', class: 'form-control'
+      = submit_tag 'submit'
+      = javascript_tag "$('.locale input').hide()"
+
+    - if user_signed_in?
+      strong
+        p class="navbar-text navbar-right"
+          = t('.sign_in_as')
+          =< link_to edit_user_registration_path
+              = current_user.email
+
+        ul class="nav nav-pills"
+          li role="presentation" class="dropdown active"
+            a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
+              = t('.profile')
+              span class="caret"
+            ul class="dropdown-menu" role="menu"
+              li = link_to t('.edit_profile'), edit_user_registration_path
+              li = link_to t('.sign_out'), destroy_user_session_path, method: :delete
+    - else
+      ul class="nav nav-pills" style="margin-top: 5px"
+        li role="presentation" class="active"
+          =<> link_to t('.sign_in'), new_user_session_path
+        li role="presentation" class="active"
+          =< link_to t('.sign_up'), new_user_registration_path

@@ -1,7 +1,11 @@
 h1
   = button_to t('.new_post'), new_post_path, method: :get, class: 'btn btn-primary pull-right'
   = t('.blog')
-= will_paginate @posts, renderer: BootstrapPagination::Rails
+
+div style="height: 70px"
+  .pull-right
+    = will_paginate @posts, renderer: BootstrapPagination::Rails
+
 - @posts.each do |post|
   .panel.panel-default
     .panel-heading
