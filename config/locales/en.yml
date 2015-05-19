@@ -9,6 +9,12 @@ en:
       sign_in: "Sign In"
       sign_up: "Sign Up"
 
+  votes:
+    like:
+      like_notice: "You like this!!!"
+    dislike:
+      dislike_notice: "You don't like this"
+
   posts:
     create:
       notice_create: "Post was successfully created"

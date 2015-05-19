@@ -2,12 +2,19 @@ ru:
   layouts:
     application:
       title: "Блог Рена"
+    nav:
       sign_in_as: "Вы вошли как:"
       profile: "Профиль"
       edit_profile: "Редактировать Профиль"
       sign_out: "Выйти"
       sign_in: "Войти"
       sign_up: "Регистрация"
+
+  votes:
+    like:
+      like_notice: "Вам это нравится!!!"
+    dislike:
+      dislike_notice: "Вам это не нравится"
 
   posts:
     create:

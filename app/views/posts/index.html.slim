@@ -10,6 +10,10 @@ div style="height: 70px"
   .panel.panel-default
     .panel-heading
       strong
+        = link_to '', post_like_path(post), class: "glyphicon glyphicon-plus-sign btn btn-xs btn-success"
+        =<> post.votes.sum(:value)
+        = link_to '', post_dislike_path(post), class: "glyphicon glyphicon-minus-sign btn btn-xs btn-danger"
+        br
         = post.author.email
       .btn-group.btn-group-xs.pull-right role="group"
         - if can? :edit, post
