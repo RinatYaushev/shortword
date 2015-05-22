@@ -2,6 +2,7 @@ en:
   layouts:
     application:
       title: "REN's Blog"
+    nav:
       sign_in_as: "Signed in as:"
       profile: "Profile"
       edit_profile: "Edit Profile"
@@ -25,6 +26,7 @@ en:
     index:
       blog: "My Blog"
       new_post: "New Post"
+      view_post: "View"
       edit_post: "Edit"
       delete_post: "Delete"
       sure: "Are You sure?"

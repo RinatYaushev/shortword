@@ -26,6 +26,7 @@ ru:
     index:
       blog: "Мой Блог"
       new_post: "Новый Пост"
+      view_post: "Просмотреть"
       edit_post: "Редактировать"
       delete_post: "Удалить"
       sure: "Вы уверены?"

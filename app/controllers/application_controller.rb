@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_i18n_locale_from_params
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

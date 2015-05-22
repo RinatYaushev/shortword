@@ -1,0 +1,7 @@
+= form_for @post do |f|
+  .form-group
+    = f.label :content, 'Post content'
+    br
+    = f.text_area(:content, rows: 15, "data-provide" => "markdown", disabled: true)
+  .pull-left
+    = link_to t('.back'), root_path, class: 'btn btn-default btn-lg', method: :get
