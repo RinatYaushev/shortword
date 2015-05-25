@@ -1,10 +1,10 @@
 nav class="navbar navbar-default"
   div class="container-fluid"
     div class="navbar-header"
-      a class="navbar-brand"
+      = link_to root_path, class: 'navbar-brand'
         img width="20" height="20" src="http://s1.postimg.org/8dsxvun8r/cat.jpg"
 
-    = form_tag root_path, method: :get, class: 'locale' do
+    = form_tag change_locale_path, method: :post, class: 'locale' do
       = select_tag 'set_locale', options_for_select(LANGUAGES, I18n.locale.to_s), onchange: 'this.form.submit()', class: 'form-control'
       = submit_tag 'submit'
       = javascript_tag "$('.locale input').hide()"
