@@ -10,12 +10,6 @@ en:
       sign_in: "Sign In"
       sign_up: "Sign Up"
 
-  votes:
-    like:
-      like_notice: "You like this!!!"
-    dislike:
-      dislike_notice: "You don't like this"
-
   posts:
     create:
       notice_create: "Post was successfully created"
@@ -32,14 +26,40 @@ en:
       sure: "Are You sure?"
       publish: "Published"
       ago: "ago"
+      new_comment: "Comment"
     new:
       new_post: "New Post"
+    show:
+      comments: "Comments"
+      publish: "Published"
+      ago: "ago"
+      edit_comment: "Edit"
+      delete_comment: "Delete"
+      sure: "Are You sure?"
+      back: "Back"
+      comment: "Comment"
     edit:
       edit_post: "Edit Post"
     form:
       content_html: "Content"
       back: "Back"
       submit: "Submit"
+
+  comments:
+    new:
+      new_comment: "New Comment"
+    edit:
+      edit_comment: "Edit Comment"
+    form:
+      content_html: "Content"
+      back: "Back"
+      submit: "Submit"
+    create:
+      notice_create: "Comment was successfully created"
+    update:
+      notice_update: "Comment was successfully updated"
+    destroy:
+      notice_destroy: "Comment was successfully deleted"
 
   datetime:
     distance_in_words:
@@ -89,6 +109,10 @@ en:
     models:
       user: "User"
     attributes:
+      post:
+        content: "Content"
+      comment:
+        content: "Content"
       user:
         password: "Password"
         current_password: "Current password"
@@ -103,8 +127,8 @@ en:
     template:
       body: "There were problems with the following fields:"
       header:
-        one: "1 ошибка не позволяет продолжить"
-        other: "%{count} ошибки %{model} не позволяют продолжить"
+        one: "1 error prohibited this %{model} from being saved"
+        other: "%{count} errors prohibited this %{model} from being saved"
 
   will_paginate:
     previous_label: "&#8592; Previous"

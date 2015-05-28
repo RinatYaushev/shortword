@@ -10,12 +10,6 @@ ru:
       sign_in: "Войти"
       sign_up: "Регистрация"
 
-  votes:
-    like:
-      like_notice: "Вам это нравится!!!"
-    dislike:
-      dislike_notice: "Вам это не нравится"
-
   posts:
     create:
       notice_create: "Пост был успешно создан"
@@ -32,14 +26,40 @@ ru:
       sure: "Вы уверены?"
       publish: "Опубликовано"
       ago: "назад"
+      new_comment: "Комментировать"
     new:
       new_post: "Новый Пост"
+    show:
+      comments: "Комментарии"
+      publish: "Опубликовано"
+      ago: "назад"
+      edit_comment: "Редактировать"
+      delete_comment: "Удалить"
+      sure: "Вы уверены?"
+      back: "Назад"
+      comment: "Ответить"
     edit:
       edit_post: "Редактировать Пост"
     form:
       content_html: "Содержимое"
       back: "Назад"
       submit: "Опубликовать"
+
+  comments:
+    new:
+      new_comment: "Новый Комментарий"
+    edit:
+      edit_comment: "Редактировать Комментарий"
+    form:
+      content_html: "Содержимое"
+      back: "Назад"
+      submit: "Опубликовать"
+    create:
+      notice_create: "Комментарий был успешно создан"
+    update:
+      notice_update: "Комментарий был успешно обновлен"
+    destroy:
+      notice_destroy: "Комментарий был успешно удален"
 
   datetime:
     distance_in_words:
@@ -70,12 +90,12 @@ ru:
         one: меньше %{count} минуты
         other: меньше %{count} минут
       less_than_x_seconds:
-        few: меньше %{count} секунд
+        few: меньше %{count} секунды
         many: меньше %{count} секунд
-        one: меньше %{count} секунды
+        one: меньше %{count} секунду
         other: меньше %{count} секунд
       over_x_years:
-        few: больше %{count} лет
+        few: больше %{count} года
         many: больше %{count} лет
         one: больше %{count} года
         other: больше %{count} лет
@@ -83,27 +103,31 @@ ru:
         few: "%{count} дня"
         many: "%{count} дней"
         one: "%{count} день"
-        other: "%{count} дня"
+        other: "%{count} дней"
       x_minutes:
         few: "%{count} минуты"
         many: "%{count} минут"
         one: "%{count} минуту"
-        other: "%{count} минуты"
+        other: "%{count} минут"
       x_months:
         few: "%{count} месяца"
         many: "%{count} месяцев"
         one: "%{count} месяц"
-        other: "%{count} месяца"
+        other: "%{count} месяцев"
       x_seconds:
         few: "%{count} секунды"
         many: "%{count} секунд"
         one: "%{count} секундy"
-        other: "%{count} секунды"
+        other: "%{count} секунд"
 
   activerecord:
     models:
       user: "Пользователю"
     attributes:
+      post:
+        content: "Содержимое"
+      comment:
+        content: "Содержимое"
       user:
         password: "Пароль"
         current_password: "Текущий пароль"

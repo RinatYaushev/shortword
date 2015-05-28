@@ -3,5 +3,5 @@ I18n.default_locale = :en
 
 LANGUAGES = [
   %w(English en),
-  ['Russian'.html_safe, 'ru']
+  ['Русский'.html_safe, 'ru']
 ]
