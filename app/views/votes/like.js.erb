@@ -1,0 +1,3 @@
+var like = $('.like[data-parent-id=<%= @parent.id %>][data-parent-type=<%= @parent.class.to_s %>]');
+
+like.text(' <%= @parent.votes.sum(:value) %> ');

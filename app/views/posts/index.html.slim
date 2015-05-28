@@ -10,21 +10,28 @@ div style="height: 70px"
   .panel.panel-default
     .panel-heading
       strong
-        = link_to '', post_like_path(post), class: "glyphicon glyphicon-plus-sign btn btn-xs btn-success"
-        =<> post.votes.sum(:value)
-        = link_to '', post_dislike_path(post), class: "glyphicon glyphicon-minus-sign btn btn-xs btn-danger"
+        = link_to '', post_like_path(post), class: "glyphicon glyphicon-plus-sign btn btn-xs btn-success", remote: true
+        span.like data-parent-id=(post.id) data-parent-type=(post.class.to_s)
+          =<> post.votes.sum(:value)
+        = link_to '', post_dislike_path(post), class: "glyphicon glyphicon-minus-sign btn btn-xs btn-danger", remote: true
         br
         = post.author.email
       .btn-group.btn-group-xs.pull-right role="group"
         - if can? :read, post
           =<> link_to t('.view_post'), post_path(post), class: 'btn btn-success'
         - if can? :edit, post
-          =<> link_to t('.edit_post'), edit_post_path(post), class: 'btn btn-info'
+          =<> link_to t('.edit_post'), edit_post_path(post), class: 'btn btn-warning'
         - if can? :delete, post
           = link_to t('.delete_post'), post, data: { confirm: t('.sure') }, method: :delete, class: 'btn btn-danger'
     .panel-body
       = link_to markdown(post.content), post
     .panel-footer
+      .badge.pull-right
+        => post.comments.size
+      br
       = t('.publish')
       =<> time_ago_in_words(post.created_at)
       = t('.ago')
+      - if can? :create, Comment.new(user: current_user)
+        .pull-right
+          = link_to t('.new_comment'), new_post_comment_path(post), class: 'btn btn-info btn-xs'
