@@ -7,14 +7,17 @@ class PostsController < ApplicationController
     if params[:set_locale]
       redirect_to root_url(locale: params[:set_locale])
     else
-      @posts = @posts.includes(:author).paginate(page: params[:page],
-                                                 per_page: 5)
+      @posts = Post.includes(:author)
+                    .order(created_at: :desc)
+                    .paginate(page: params[:page], per_page: 4)
     end
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comments = @post.comments.includes(:user)
+                              .paginate(page: params[:page], per_page: 3)
   end
 
   # GET /posts/new
@@ -28,28 +31,20 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to root_path, notice: t('.notice_create') }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.save
+      redirect_to root_path, notice: t('.notice_create')
+    else
+      render :new
     end
   end
 
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    respond_to do |format|
-      if @post.update(post_params)
-        format.html { redirect_to root_path, notice: t('.notice_update') }
-        format.json { render :show, status: :ok, location: @post }
-      else
-        format.html { render :edit }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    if @post.update(post_params)
+      redirect_to root_path, notice: t('.notice_update')
+    else
+      render :edit
     end
   end
 
@@ -58,10 +53,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
 
-    respond_to do |format|
-      format.html { redirect_to root_path, notice: t('.notice_destroy') }
-      format.json { head :no_content }
-    end
+    redirect_to root_path, alert: t('.notice_destroy')
   end
 
   private

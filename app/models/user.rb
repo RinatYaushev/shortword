@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :posts, foreign_key: :author_id, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :votes, as: :likeable
 end

@@ -1,7 +1,37 @@
-= form_for @post do |f|
-  .form-group
-    = f.label :content, 'Post content'
-    br
-    = f.text_area(:content, rows: 15, "data-provide" => "markdown", disabled: true)
-  .pull-left
-    = link_to t('.back'), root_path, class: 'btn btn-default btn-lg', method: :get
+.panel.panel-primary
+  .panel-heading
+    = @post.author.email
+  .panel-body
+    = markdown @post.content
+  .panel-footer
+    = t('.publish')
+    =<> time_ago_in_words(@post.created_at)
+    = t('.ago')
+
+h1
+  .text-center
+    = t('.comments')
+div style="height: 70px"
+  .text-center
+    = will_paginate @comments, renderer: BootstrapPagination::Rails
+
+- @comments.each do |comment|
+  .panel.panel-default
+    .panel-heading
+      = comment.user.email
+    .panel-body
+      = markdown comment.content
+    .panel-footer
+      = t('.publish')
+      =<> time_ago_in_words(comment.created_at)
+      = t('.ago')
+      .btn-group.btn-group-xs.pull-right role="group"
+        - if can? :edit, comment
+          =<> link_to t('.edit_comment'), edit_post_comment_path(@post, comment), class: 'btn btn-info'
+        - if can? :delete, comment
+          = link_to t('.delete_comment'), post_comment_path(@post, comment), method: :delete, data: { confirm: t('.sure') }, class: 'btn btn-danger'
+
+.pull-left
+  => link_to t('.back'), root_path, class: 'btn btn-default btn-lg'
+.pull-right
+  = link_to t('.comment'), new_post_comment_path(@post.id), class: 'btn btn-primary btn-lg'

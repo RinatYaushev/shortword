@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518083422) do
+ActiveRecord::Schema.define(version: 20150525105607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "post_id"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.integer  "author_id"
@@ -48,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150518083422) do
     t.string   "likeable_type"
     t.integer  "user_id"
     t.integer  "value",         default: 0
-    t.integer  "votes_counter", default: 0
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end

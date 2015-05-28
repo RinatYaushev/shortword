@@ -1,0 +1,21 @@
+= form_for [@post, @comment] do |f|
+  - if @comment.errors.any?
+    #error_explanation
+      h2
+        = raw t('errors.template.header', count: @comment.errors.count, model: t('activerecord.models.comment'))
+      p
+        = t('errors.template.body')
+      ul
+        - @comment.errors.full_messages.each do |message|
+          li
+            = raw message
+
+  .field
+    = f.label :content, t('.content_html')
+    br
+    = f.text_area(:content, rows: 15, "data-provide" => "markdown")
+  br
+  .pull-left
+    = link_to t('.back'), root_path, class: 'btn btn-default btn-lg'
+  .pull-right
+    = f.button t('.submit'), class: 'btn btn-primary btn-lg'
