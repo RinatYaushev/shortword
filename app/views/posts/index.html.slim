@@ -18,16 +18,16 @@ div style="height: 70px"
         = post.author.email
       .btn-group.btn-group-xs.pull-right role="group"
         - if can? :read, post
-          =<> link_to t('.view_post'), post_path(post), class: 'btn btn-success'
+          = link_to t('.view_post'), post_path(post), class: 'btn btn-success'
         - if can? :edit, post
-          =<> link_to t('.edit_post'), edit_post_path(post), class: 'btn btn-warning'
+          = link_to t('.edit_post'), edit_post_path(post), class: 'btn btn-warning'
         - if can? :delete, post
           = link_to t('.delete_post'), post, data: { confirm: t('.sure') }, method: :delete, class: 'btn btn-danger'
     .panel-body
       = link_to markdown(post.content), post
     .panel-footer
       .badge.pull-right
-        => post.comments.size
+        = post.comments.size
       br
       = t('.publish')
       =<> time_ago_in_words(post.created_at)
