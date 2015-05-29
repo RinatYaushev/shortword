@@ -4,13 +4,9 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    if params[:set_locale]
-      redirect_to root_url(locale: params[:set_locale])
-    else
-      @posts = Post.includes(:author)
-                    .order(created_at: :desc)
-                    .paginate(page: params[:page], per_page: 4)
-    end
+    @posts = Post.includes(:author)
+                  .order(created_at: :desc)
+                  .paginate(page: params[:page], per_page: 4)
   end
 
   # GET /posts/1

@@ -10,10 +10,11 @@ div style="height: 70px"
   .panel.panel-default
     .panel-heading
       strong
-        = link_to '', post_like_path(post), class: "glyphicon glyphicon-plus-sign btn btn-xs btn-success", remote: true
-        span.like data-parent-id=(post.id) data-parent-type=(post.class.to_s)
-          =<> post.votes.sum(:value)
-        = link_to '', post_dislike_path(post), class: "glyphicon glyphicon-minus-sign btn btn-xs btn-danger", remote: true
+        - if user_signed_in?
+          = link_to '', post_like_path(post), class: "glyphicon glyphicon-plus-sign btn btn-xs btn-success", remote: true
+          span.like data-parent-id=(post.id) data-parent-type=(post.class.to_s)
+            =<> post.votes.sum(:value)
+          = link_to '', post_dislike_path(post), class: "glyphicon glyphicon-minus-sign btn btn-xs btn-danger", remote: true
         br
         = post.author.email
       .btn-group.btn-group-xs.pull-right role="group"
